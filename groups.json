@@ -1,0 +1,42 @@
+{
+    "Arts": {
+        "codes": ["AAST", "ALA", "AMS", "ANT", "ARB", "ARH", "ART", "AS", "ASL", "ASST", "AY", "BSC", "CAS", "CC", "CD", "CH", "CHI", "CJ", "CL", "CRL", "CZE", "DN", "DNCA", "DUT", "EN", "FA", "FIN", "FR", "FRS", "GEO", "GN", "GR", "GY", "HEB", "HIN", "HY", "IDGR", "IDMD", "INDO", "IT", "JA", "KOR", "LA", "LAS", "MATH", "MDGR", "MS", "MUA", "MUS", "MUSM", "NCLT", "NEW", "PAS", "PH", "PHL", "POL", "POR", "PSC", "PY", "REL", "RL", "RUS", "SAN", "SOC", "SP", "SS", "SWA", "SWED", "TH", "THAI", "THMT", "TURK", "UKR", "VIET", "WL", "WS"],
+        "color": 16777215
+    },
+    "CIS": {
+        "codes": ["APR", "BA", "CCO", "CIS", "COM", "IS", "JCM", "LS", "MC", "PCM", "TCF"],
+        "color": 16711680
+    },
+    "Education": {
+        "codes": ["AEL", "AHE", "AIL", "BEF", "BEP", "BER", "BSP", "CAT", "CED", "CEE", "CIE", "CRD", "CSE", "EDU", "INTE", "KIN", "MUE", "PED", "SPE"],
+        "color": 11393254
+    },
+    "HES": {
+        "codes": ["CSM", "CTD", "HD", "HES", "HHE", "NHM", "PHS"],
+        "color": 8388608
+    },
+    "Nursing": {
+        "codes": ["NUR", "NUS", "PNU"],
+        "color": 16502449
+    },
+    "Business": {
+        "codes": ["AC", "CCB", "EC", "FI", "GBA", "HCAN", "IBA", "LGS", "MGS", "MKT", "OM", "PCB", "RHM", "ST"],
+        "color": 13808780
+    },
+    "CHS": {
+        "codes": ["CHS", "POPH", "RCH"],
+        "color": 9498256
+    },
+    "Engineering": {
+        "codes": ["AEM", "CE", "CEG", "CHE", "CS", "DR", "ECE", "ENGR", "EPIC", "GES", "ME", "MFE", "MTE", "PEG"],
+        "color": 16753920
+    },
+    "Law": {
+        "codes": ["LAW"],
+        "color": 10494192
+    },
+    "Social Work": {
+            "codes": ["PSW", "SW"],
+            "color": 16776960
+    }
+}

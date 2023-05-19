@@ -48,8 +48,4 @@ def scrape_course(course_prefix, course_number):
         
         course_info["Prerequisites"] = prerequisites_result.strip()
 
-        print(course_info["Prerequisites"])
-
     return course_info
-
-scrape_course("ENGR", "123")

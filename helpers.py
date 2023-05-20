@@ -40,3 +40,28 @@ def get_term(term: str):
     except:
         print("An error in get_term() occured with '" + term + "', returning default term")
         return get_default_term()
+
+def get_secret():
+    import boto3
+    from botocore.exceptions import ClientError    
+
+    secret_name = "DiscordToken"
+    region_name = "us-east-1"
+
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        raise e
+
+    # Decrypts secret using the associated KMS key.
+    secret = get_secret_value_response['SecretString']
+    return secret

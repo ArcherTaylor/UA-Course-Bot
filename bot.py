@@ -1,14 +1,10 @@
-import os
-from dotenv import load_dotenv
-
 import discord
 import scrape
 import helpers
 from discord import app_commands
 from discord.ext import commands
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = helpers.get_secret()
 
 bot = commands.Bot(command_prefix="!", intents = discord.Intents.default())
 bot.remove_command('help')

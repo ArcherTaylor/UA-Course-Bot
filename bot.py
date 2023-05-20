@@ -23,15 +23,16 @@ async def on_ready():
         print(e)
 
 @bot.tree.command(name="course")
-@app_commands.describe(course_prefix = "EX: CS, ENGR, AEM, etc...", course_number = "What is the number of the course?")
-async def say(interaction: discord.Interaction, course_prefix: str, course_number: str):
+@app_commands.describe(course_prefix = "EX: CS, ENGR, AEM, etc...", course_number = "What is the number of the course?", term = "What is the term of the course?")
+async def say(interaction: discord.Interaction, course_prefix: str, course_number: str, term: str = ""):
+    term = helpers.get_term(term)
     course_prefix = course_prefix.upper()
     embed_color = helpers.find_embed_color(course_prefix)
     course_info = scrape.scrape_course(course_prefix, course_number)
     if course_info is None:
-        embed=discord.Embed(title=f"{course_prefix} {course_number}", url=f"https://ssb.ua.edu/pls/PROD/bwckctlg.p_disp_course_detail?cat_term_in=202340&subj_code_in={course_prefix}&crse_numb_in={course_number}", description="No course found.", color=embed_color)
+        embed=discord.Embed(title=f"{course_prefix} {course_number}", url=f"https://ssb.ua.edu/pls/PROD/bwckctlg.p_disp_course_detail?cat_term_in={term}&subj_code_in={course_prefix}&crse_numb_in={course_number}", description="No course found.", color=embed_color)
     else:
-        embed=discord.Embed(title=f"{course_prefix} {course_number}", url=f"https://ssb.ua.edu/pls/PROD/bwckctlg.p_disp_course_detail?cat_term_in=202340&subj_code_in={course_prefix}&crse_numb_in={course_number}", description=course_info["Description"], color=embed_color)
+        embed=discord.Embed(title=f"{course_prefix} {course_number}", url=f"https://ssb.ua.edu/pls/PROD/bwckctlg.p_disp_course_detail?cat_term_in={term}&subj_code_in={course_prefix}&crse_numb_in={course_number}", description=course_info["Description"], color=embed_color)
         embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.png")
         embed.add_field(name="Credit Hours", value=course_info["Credit Hours"])
         embed.add_field(name="Level", value=course_info["Levels"])

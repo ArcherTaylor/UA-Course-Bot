@@ -43,6 +43,7 @@ def get_term(term: str):
 
 def get_secret():
     import boto3
+    import json
     from botocore.exceptions import ClientError    
 
     secret_name = "DiscordToken"
@@ -64,4 +65,6 @@ def get_secret():
 
     # Decrypts secret using the associated KMS key.
     secret = get_secret_value_response['SecretString']
-    return secret
+    secret_json = json.loads(secret)
+    discord_token = secret_json["DISCORD_TOKEN"]
+    return discord_token

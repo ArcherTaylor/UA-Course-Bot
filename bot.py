@@ -4,7 +4,7 @@ import helpers
 from discord import app_commands
 from discord.ext import commands
 
-TOKEN = helpers.get_secret()
+TOKEN = (helpers.get_secret()).get("DISCORD_TOKEN")
 
 bot = commands.Bot(command_prefix="!", intents = discord.Intents.default())
 bot.remove_command('help')

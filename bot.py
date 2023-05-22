@@ -1,6 +1,6 @@
 import discord
-import scrape
-import helpers
+import utils.scrape as scrape
+import utils.helpers as helpers
 from discord import app_commands
 from discord.ext import commands
 

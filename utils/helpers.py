@@ -38,7 +38,7 @@ def get_term(term: str):
         else:
             return get_default_term()
     except:
-        print("An error in get_term() occured with '" + term + "', returning default term")
+        log_error("An error in get_term() occured with '" + term + "', returning default term")
         return get_default_term()
 
 def get_secret():
@@ -68,3 +68,7 @@ def get_secret():
     secret_json = json.loads(secret)
     discord_token = secret_json["DISCORD_TOKEN"]
     return discord_token
+
+def log_error(msg):
+    with open('error_log.txt', 'a') as f:
+        f.write(msg + '\n')

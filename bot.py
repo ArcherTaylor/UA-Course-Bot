@@ -1,13 +1,8 @@
-import discord
+from utils.bot_setup import *
 import utils.scrape as scrape
 import utils.helpers as helpers
-from discord import app_commands
-from discord.ext import commands
 
 TOKEN = helpers.get_secret()
-
-bot = commands.Bot(command_prefix="!", intents = discord.Intents.default())
-bot.remove_command('help')
 
 @bot.event
 async def on_ready():
@@ -36,5 +31,10 @@ async def say(interaction: discord.Interaction, course_prefix: str, course_numbe
         if course_info["Prerequisites"] != None:
             embed.add_field(name="Prerequisites", value=course_info["Prerequisites"], inline=False)
     await interaction.response.send_message(embed=embed)
+
+@bot.tree.command(name="professor")
+@app_commands.describe(name = "What is their name?")
+async def say(interaction: discord.Interaction, name: str):
+    await interaction.response.send_message("Currently a work in progress!")
 
 bot.run(TOKEN)
